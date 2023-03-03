@@ -1,25 +1,28 @@
 <template>
-  <div class="app">
-    <router-view>
-      
-    </router-view>
+  <Navbar></Navbar>
+  <div class="app">    
+    <router-view> </router-view>
   </div>
 </template>
 
 <script>
-  export default {
-    
+import Navbar from "@/components/Navbar";
+export default {
+  components: {
+    Navbar
   }
+};
 </script>
 
 <style>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  .app {
-    padding: 20px;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.app {
+  padding: 20px;
+  overflow-x: hidden;
+}
 </style>

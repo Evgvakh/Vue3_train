@@ -14,9 +14,9 @@
 </template>
 
 <script>
-import MySelect from "./UI/MySelect.vue";
-
+import MySelect from '@/components/UI/MySelect'
 export default {
+  
   data() {
     return {
       post: {

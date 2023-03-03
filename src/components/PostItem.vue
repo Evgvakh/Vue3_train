@@ -1,17 +1,23 @@
 <template>
-  <div class="post">
-    <div>
-      <div><strong>{{ post.id }}</strong></div>
-      <div><strong>Title: </strong>{{ post.titre }}</div>
-      <div><strong>Content: </strong><pre>{{ post.contenu }}</pre></div>
+  <div class="post" >
+    <div class="content">
+      <div class="image"
+            :style="{backgroundImage: `url(${require('../assets/'+post.img)})`}">
+      </div>      
+      <div class="text">
+        <div><strong>{{ post.titre }}</strong></div>
+        <div><strong>{{ post.id }}</strong></div>
+      </div>     
     </div>
-    <MyButton @click="$emit('remove', post)" style="align-self: flex-end;"> Remove </MyButton>
+    <div class="post__btns">
+      <MyButton @click="$emit('remove', post)" style="margin-right: 10px;"> Remove </MyButton>
+      <MyButton @click="$emit('remove', post)"> Read </MyButton>
+    </div>
   </div>
 </template>
 
 <script>
-import MyButton from "./UI/MyButton.vue";
-
+import MyButton from '@/components/UI/MyButton.vue';
 export default {
   props: {
     post: {
@@ -19,36 +25,41 @@ export default {
       requred: true,
     },
   },
+
   components: { MyButton },
 };
 </script>
 
 <style scoped>
 .post {
-  padding: 15px;
+  height: 25vh;  
+  padding: 10px;
   border: 2px solid rgb(35, 35, 224);
   margin-top: 25px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: space-between;
 }
 
-.post div div:nth-of-type(1) {
-    margin-bottom: 15px;
-    font-size: 18px;
-}
-.post div div:nth-of-type(2) {
-  width: 85%;
-}
-
-.post div div pre {
-  display: block;
+.content {
+  display: flex;
   width: 100%;
-  font-family: inherit;
-  white-space: pre-wrap;
-  white-space: -moz-pre-wrap;
-  white-space: -pre-wrap;
-  white-space: -o-pre-wrap;
-  word-wrap: break-word; 
+}
+
+.content .image {
+  width: 30%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-right: 15px;
+}
+
+.content .text {
+  width: 65%;
+}
+
+.post__btns {
+  display: flex;
+  align-self: flex-end;
 }
 </style>
