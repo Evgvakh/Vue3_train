@@ -11,7 +11,7 @@
       }"
     >
       {{ pageNum }}
-    </div>
+    </div>    
   </div>
 </template>
 

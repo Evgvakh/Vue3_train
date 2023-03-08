@@ -1,23 +1,30 @@
 <template>
-  <div class="post" >
+  <div class="post">
     <div class="content">
-      <div class="image"
-            :style="{backgroundImage: `url(${require('../assets/'+post.img)})`}">
-      </div>      
+      <div
+        class="image"
+        :style="{ backgroundImage: `url(${require('../assets/' + post.img)})` }"
+      ></div>
       <div class="text">
-        <div><strong>{{ post.titre }}</strong></div>
-        <div><strong>{{ post.id }}</strong></div>
-      </div>     
+        <div>
+          <strong>{{ post.titre }}</strong>
+        </div>
+        <div>
+          <strong>{{ post.id }}</strong>
+        </div>
+      </div>
     </div>
     <div class="post__btns">
-      <MyButton @click="$emit('remove', post)" style="margin-right: 10px;"> Remove </MyButton>
-      <MyButton @click="$emit('remove', post)"> Read </MyButton>
+      <MyButton @click="$emit('remove', post)" style="margin-right: 10px">
+        Remove
+      </MyButton>
+      <MyButton @click="$router.push(`/posts/${post.id}`)"> Read </MyButton>
     </div>
   </div>
 </template>
-
 <script>
-import MyButton from '@/components/UI/MyButton.vue';
+import MyButton from "@/components/UI/MyButton.vue";
+import router from "@/router/router";
 export default {
   props: {
     post: {
@@ -32,7 +39,7 @@ export default {
 
 <style scoped>
 .post {
-  height: 25vh;  
+  height: 25vh;
   padding: 10px;
   border: 2px solid rgb(35, 35, 224);
   margin-top: 25px;

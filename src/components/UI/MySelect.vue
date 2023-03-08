@@ -1,7 +1,7 @@
 <template>
   <div class="select">      
       <select id="select" :value="value" @change="changeOptions">
-        <option disabled value="">Select sort</option>
+        <option disabled value=""> {{ title }}</option>
         <option :value="option.value" :key="option.value" v-for="option in options">
           {{ option.name }}
         </option>
@@ -19,9 +19,10 @@ export default {
     },
 
     options: {
-      type: Array,
-      default: () => [],
-    },
+      type: Array,      
+    },    
+
+    title: ''
   },
 
   methods: {

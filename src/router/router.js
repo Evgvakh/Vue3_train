@@ -1,7 +1,8 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router';
 import Main from '@/pages/Main';
 import PostPage from '@/pages/PostPage';
 import About from '@/pages/About';
+import OnePost from '@/pages/OnePost';
 
 const routes = [
     {
@@ -11,13 +12,19 @@ const routes = [
 
     {
         path: '/posts',
-        component: PostPage
+        component: PostPage 
     },
 
     {
         path: '/about',
         component: About
-    }
+    },
+
+    {
+        path: '/posts/:id',
+        component: OnePost
+    },
+    
 ];
 
 const router = createRouter({

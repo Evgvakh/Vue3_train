@@ -7,7 +7,7 @@ try {
     die("Erreur : " . $e->getMessage());
 }
 
-$limit = 2;
+$limit = 100000000;
 $offset = 0;
 
 if(isset($_GET['limit'])) {
