@@ -1,35 +1,43 @@
 <template>
-    <div>
-        <h1>This is a post page</h1>
-        {{ $route.params }}
-        <MyInput v-model="text"/>
-        <MyButton @click="localSt"></MyButton>
-        <h2>{{ this.storage }}</h2>
-        <MyButton v-show="storage == 'username=oleg'"></MyButton>
-    </div>
+  <h1>{{ this.post }}</h1>
 </template>
 
 <script>
-import MyInput from '@/components/UI/MyInput.vue';
 
-    export default {
-    data() {
-        return {
-            storage: '',
-            text: ""
-        }
-    },
-    methods: {
-        localSt() {
-            document.cookie = `username=${this.text}`
-            this.storage = document.cookie
-        }
+import axios from 'axios';
+
+export default {    
+
+  data() {
+    return {
+        post: []
+    };
+  },
+
+  methods: {
+    async fetchPost() {
+      try {
+        this.isPostLoading = true;
+        const response = await axios.get(
+          `http://localhost/vue3/getPost.php`,
+        {
+            params: {
+                id: this.$route.params.id
+            } 
+        }         
+        );
+        this.post = response.data;
+        console.log(this.post)        
+        this.isPostLoading = false;
+      } catch {}
     },
     
-    components: { MyInput }
-}
+  },
+
+  async mounted() {
+    await this.fetchPost()    
+  }
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

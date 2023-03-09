@@ -11,12 +11,12 @@ if (isset($_GET['id'])) {
     $id = $_GET['id'];
 }
 
-$sql = "SELECT * FROM `articles` WHERE id = :id";
+$sql = "SELECT * FROM articles WHERE id = :id";
 
 $req = $pdo->prepare($sql);
-$req->bindParam("id", $id);
+$req->bindParam("id", $id, PDO::PARAM_INT);
 $req->execute();
-$res = $req->fetchAll(PDO::FETCH_ASSOC);
+$res = $req->fetchAll();
 
 echo json_encode($res);
 ?>
