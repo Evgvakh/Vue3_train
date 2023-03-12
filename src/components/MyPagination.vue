@@ -1,6 +1,6 @@
 <template>
-  <div class="page__wrapper">
-    <div
+  <div class="page__wrapper">    
+    <div      
       v-for="pageNum in pageData.totalPages"
       :key="pageNum"
       :pageNum="pageNum"

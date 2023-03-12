@@ -9,8 +9,14 @@
             @click="$router.push('/posts')"
             >Posts</MyButton>
             <MyButton
+            @click="$router.push('/store')"
+            >POSTS whith store</MyButton>
+            <MyButton
+            @click="$router.push('/composition')"
+            >POSTS whith Composition API</MyButton>
+            <MyButton
             @click="$router.push('/about')"
-            >About</MyButton>
+            >About</MyButton>            
         </div>
     </div>
 </template>

@@ -212,7 +212,7 @@ export default {
       return this.sortedPosts.filter((post) =>
         post.titre.toLowerCase().includes(this.searchQuery.toLowerCase())
       );
-    },
+    },    
   },
   watch: {
 

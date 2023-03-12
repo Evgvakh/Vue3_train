@@ -1,5 +1,5 @@
 <template>
-  <div v-show="this.posts.length">
+  <div v-show="posts.length">    
     <h3>Posts list</h3>
     <transition-group name="posts-list">
       <PostItem
@@ -11,9 +11,9 @@
       />
     </transition-group>
   </div>
-  <div v-show="!this.posts.length" style="color: darkred">
+  <!-- <div v-show="!this.posts.length" style="color: darkred">
     <h2>No posts yet</h2>
-  </div>
+  </div> -->
 </template>
 
 <script>

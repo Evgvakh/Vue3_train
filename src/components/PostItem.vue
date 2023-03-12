@@ -7,13 +7,14 @@
       ></div>
       <div class="text">
         <div>
-          <strong>{{ post.titre }}</strong>
+          <strong>{{ post.titre.toUpperCase() }}</strong>
         </div>
-        <div>
+        <div>          
           <strong>{{ post.id }}</strong>
         </div>
       </div>
     </div>
+
     <div class="post__btns">
       <MyButton @click="$emit('remove', post)" style="margin-right: 10px">
         Remove
@@ -24,7 +25,7 @@
 </template>
 <script>
 import MyButton from "@/components/UI/MyButton.vue";
-import router from "@/router/router";
+
 export default {
   props: {
     post: {
